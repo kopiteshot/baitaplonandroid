@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.mydatabase;
+package com.example.kopiteshot.buoi15parserxml.control.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
 
-import com.example.kopiteshot.buoi15parserxml.itemnews.ItemNew;
+import com.example.kopiteshot.buoi15parserxml.model.ItemNew;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by Kopiteshot on 5/18/2017.
  */
 
-public class MyDatabase {
+public class MyDatabase implements DatabaseInterface {
 
     public static final String TABLE_NAME_SAVE = "newstable";
     public static final String IMAGE = "IMAGE";
@@ -39,8 +39,8 @@ public class MyDatabase {
         copyFile();
     }
 
-
-    private void copyFile() {
+    @Override
+    public void copyFile() {
         File file = new File(PATH);
         if (file.exists() == false) {
             File parent = file.getParentFile();
@@ -63,16 +63,18 @@ public class MyDatabase {
         }
     }
 
-
-    private void openDatabase() {
+    @Override
+    public void openDatabase() {
         database = context.openOrCreateDatabase(PATH, Context.MODE_PRIVATE, null);
     }
 
-    private void closeDatabase() {
+    @Override
+    public void closeDatabase() {
         database.close();
     }
 
 
+    @Override
     public ArrayList<ItemNew> getData() {
         ArrayList<ItemNew> arr = new ArrayList<>();
         openDatabase();
@@ -102,6 +104,7 @@ public class MyDatabase {
     }
 
 
+    @Override
     public long insert(ItemNew student) {
         openDatabase();
         ContentValues contentValues = new ContentValues();
@@ -125,6 +128,7 @@ public class MyDatabase {
         return newid;
     }
 
+    @Override
     public int update(ItemNew student) {
         openDatabase();
         ContentValues contentValues = new ContentValues();
@@ -141,6 +145,7 @@ public class MyDatabase {
         closeDatabase();
         return rows;
     }
+
 
     public int delete(String id) {
         openDatabase();

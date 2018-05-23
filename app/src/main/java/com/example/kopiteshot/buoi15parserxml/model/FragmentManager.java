@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.myfragment;
+package com.example.kopiteshot.buoi15parserxml.model;
 
 
 import android.support.v4.app.Fragment;

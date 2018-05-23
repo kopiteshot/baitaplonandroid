@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.myfragment;
+package com.example.kopiteshot.buoi15parserxml.view.pager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
  */
 
 public class View_Pager extends FragmentPagerAdapter {
-    private ArrayList<com.example.kopiteshot.buoi15parserxml.myfragment.FragmentManager> fragmentManagers = new ArrayList<>();
+    private ArrayList<com.example.kopiteshot.buoi15parserxml.model.FragmentManager> fragmentManagers = new ArrayList<>();
 
-    public View_Pager(FragmentManager fm, ArrayList<com.example.kopiteshot.buoi15parserxml.myfragment.FragmentManager> fragmentManagers) {
+    public View_Pager(FragmentManager fm, ArrayList<com.example.kopiteshot.buoi15parserxml.model.FragmentManager> fragmentManagers) {
         super(fm);
         this.fragmentManagers = fragmentManagers;
     }

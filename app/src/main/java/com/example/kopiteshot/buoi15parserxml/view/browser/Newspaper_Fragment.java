@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.mywebview;
+package com.example.kopiteshot.buoi15parserxml.view.browser;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,13 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-import com.example.kopiteshot.buoi15parserxml.myresource.MyResource;
+import com.example.kopiteshot.buoi15parserxml.view.browser.MyBrowser;
+import com.example.kopiteshot.buoi15parserxml.model.MyResource;
 import com.example.kopiteshot.buoi15parserxml.R;
 
-/**
- * Created by Kopiteshot on 5/17/2017.
- */
-
+// fragment đọc báo
 public class Newspaper_Fragment extends Fragment {
 
     private WebView webView;
@@ -48,11 +46,6 @@ public class Newspaper_Fragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-//                Toast.makeText(getActivity(),"ok",Toast.LENGTH_SHORT).show();
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//             //   MainActivity mainActivity = (MainActivity) getActivity();
-//               // fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
                 getActivity().getFragmentManager().popBackStack();
                 return true;
             }

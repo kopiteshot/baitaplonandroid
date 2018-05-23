@@ -1,6 +1,6 @@
-package com.example.kopiteshot.buoi15parserxml.parsexml;
+package com.example.kopiteshot.buoi15parserxml.control.xml;
 
-import com.example.kopiteshot.buoi15parserxml.itemnews.ItemNew;
+import com.example.kopiteshot.buoi15parserxml.model.ItemNew;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

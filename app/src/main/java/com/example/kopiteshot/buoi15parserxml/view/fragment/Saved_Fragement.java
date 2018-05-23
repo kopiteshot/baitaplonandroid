@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.myfragment;
+package com.example.kopiteshot.buoi15parserxml.view.fragment;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,14 +13,14 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.example.kopiteshot.buoi15parserxml.itemnews.ItemAdapter;
-import com.example.kopiteshot.buoi15parserxml.itemnews.ItemNew;
-import com.example.kopiteshot.buoi15parserxml.mainactivity.MainActivity;
+import com.example.kopiteshot.buoi15parserxml.model.ItemAdapter;
+import com.example.kopiteshot.buoi15parserxml.model.ItemNew;
 import com.example.kopiteshot.buoi15parserxml.R;
-import com.example.kopiteshot.buoi15parserxml.mydatabase.LikeDatabase;
-import com.example.kopiteshot.buoi15parserxml.mydatabase.MyDatabase;
-import com.example.kopiteshot.buoi15parserxml.myresource.MyResource;
-import com.example.kopiteshot.buoi15parserxml.mywebview.Newspaper_Fragment;
+import com.example.kopiteshot.buoi15parserxml.control.database.LikeDatabase;
+import com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase;
+import com.example.kopiteshot.buoi15parserxml.model.MyResource;
+import com.example.kopiteshot.buoi15parserxml.view.MainActivity;
+import com.example.kopiteshot.buoi15parserxml.view.browser.Newspaper_Fragment;
 
 import java.util.ArrayList;
 

@@ -1,16 +1,13 @@
-package com.example.kopiteshot.buoi15parserxml.mywebview;
+package com.example.kopiteshot.buoi15parserxml.view.browser;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-/**
- * Created by Kopiteshot on 5/17/2017.
- */
 
+// Hiển thị progress bar khi load trang đọc báo
 public class MyBrowser extends WebViewClient {
     private ProgressDialog progressDialog;
 

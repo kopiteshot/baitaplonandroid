@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.myasynctask;
+package com.example.kopiteshot.buoi15parserxml.control.asynctask;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -7,8 +7,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.example.kopiteshot.buoi15parserxml.itemnews.ItemNew;
-import com.example.kopiteshot.buoi15parserxml.parsexml.ParseXML;
+import com.example.kopiteshot.buoi15parserxml.model.ItemNew;
+import com.example.kopiteshot.buoi15parserxml.control.xml.ParseXML;
 
 import org.xml.sax.SAXException;
 

@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.itemnews;
+package com.example.kopiteshot.buoi15parserxml.model;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.kopiteshot.buoi15parserxml.R;
+import com.example.kopiteshot.buoi15parserxml.model.ItemNew;
 
 import java.util.ArrayList;
 

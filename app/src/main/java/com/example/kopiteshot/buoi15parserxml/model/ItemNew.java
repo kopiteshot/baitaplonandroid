@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.itemnews;
+package com.example.kopiteshot.buoi15parserxml.model;
 
 /**
  * Created by Kopiteshot on 5/14/2017.

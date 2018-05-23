@@ -1,18 +1,19 @@
-package com.example.kopiteshot.buoi15parserxml.mainactivity;
+package com.example.kopiteshot.buoi15parserxml.view;
 
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.kopiteshot.buoi15parserxml.R;
-import com.example.kopiteshot.buoi15parserxml.myfragment.FragmentManager;
-import com.example.kopiteshot.buoi15parserxml.myfragment.Like_Fragment;
-import com.example.kopiteshot.buoi15parserxml.myfragment.News_Fragment;
-import com.example.kopiteshot.buoi15parserxml.myfragment.Saved_Fragement;
-import com.example.kopiteshot.buoi15parserxml.myfragment.View_Pager;
+import com.example.kopiteshot.buoi15parserxml.model.FragmentManager;
+import com.example.kopiteshot.buoi15parserxml.view.fragment.Like_Fragment;
+import com.example.kopiteshot.buoi15parserxml.view.fragment.News_Fragment;
+import com.example.kopiteshot.buoi15parserxml.view.fragment.Saved_Fragement;
+import com.example.kopiteshot.buoi15parserxml.view.fragment.StatusbarUtils;
+import com.example.kopiteshot.buoi15parserxml.view.pager.View_Pager;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StatusbarUtils.darkenStatusBar(this, R.color.colorPrimary);
         init();
     }
 
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         return like_fragment;
     }
 
+    public News_Fragment getNews_fragment() {
+        return news_fragment;
+    }
+
+    // khởi tạo view và thuộc tính
     private void init() {
         tmp = "";
         news_fragment = new News_Fragment();
@@ -53,12 +60,11 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         view_pager = new View_Pager(getSupportFragmentManager(), fragmentManagers);
         viewPager.setAdapter(view_pager);
+
+
         viewPager.addOnPageChangeListener(this);
     }
 
-    public News_Fragment getNews_fragment() {
-        return news_fragment;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,11 +75,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         return true;
     }
 
-    private void setupActionBar() {
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
+    // tu khoa tim kiem
     public String getKeyString() {
         return tmp;
     }
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     public boolean onQueryTextSubmit(String query) {
         tmp = query;
         News_Fragment x = (News_Fragment) fragmentManagers.get(0).getFragment();
-        x.update();
+        x.update(1);
         return true;
     }
 
@@ -107,9 +110,4 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         return false;
     }
 
-
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Toast.makeText(this, news_fragment.getItemNewArrayList().get(position).getImage().toString(), Toast.LENGTH_SHORT).show();
-//    }
 }

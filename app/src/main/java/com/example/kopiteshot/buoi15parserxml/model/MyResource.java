@@ -1,4 +1,4 @@
-package com.example.kopiteshot.buoi15parserxml.myresource;
+package com.example.kopiteshot.buoi15parserxml.model;
 
 import android.app.Application;
 

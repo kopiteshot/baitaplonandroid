@@ -1,11 +1,11 @@
-package com.example.kopiteshot.buoi15parserxml.mydatabase;
+package com.example.kopiteshot.buoi15parserxml.control.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.kopiteshot.buoi15parserxml.itemnews.ItemNew;
+import com.example.kopiteshot.buoi15parserxml.model.ItemNew;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,13 +13,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import static com.example.kopiteshot.buoi15parserxml.mydatabase.MyDatabase.*;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.DESCRIPTION;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.GUID;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.HTMLCODE;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.IMAGE;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.LINK;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.PATH;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.PUBDATE;
+import static com.example.kopiteshot.buoi15parserxml.control.database.MyDatabase.TITLE;
 
 /**
  * Created by Kopiteshot on 5/21/2017.
  */
 
-public class LikeDatabase {
+public class LikeDatabase implements DatabaseInterface {
     public static final String TABLE_NAME_LIKE = "liketable";
 
     private SQLiteDatabase database;
@@ -30,7 +37,8 @@ public class LikeDatabase {
         copyFile();
     }
 
-    private void copyFile() {
+    @Override
+    public void copyFile() {
         File file = new File(PATH);
         if (file.exists() == false) {
             File parent = file.getParentFile();
@@ -53,15 +61,17 @@ public class LikeDatabase {
         }
     }
 
-    private void openDatabase() {
+    @Override
+    public void openDatabase() {
         database = context.openOrCreateDatabase(PATH, Context.MODE_PRIVATE, null);
     }
 
-    private void closeDatabase() {
+    @Override
+    public void closeDatabase() {
         database.close();
     }
 
-
+    @Override
     public ArrayList<ItemNew> getData() {
         ArrayList<ItemNew> arr = new ArrayList<>();
         openDatabase();
@@ -90,7 +100,7 @@ public class LikeDatabase {
         return arr;
     }
 
-
+    @Override
     public long insert(ItemNew student) {
         openDatabase();
         ContentValues contentValues = new ContentValues();
@@ -114,6 +124,7 @@ public class LikeDatabase {
         return newid;
     }
 
+    @Override
     public int update(ItemNew student) {
         openDatabase();
         ContentValues contentValues = new ContentValues();
@@ -131,7 +142,8 @@ public class LikeDatabase {
         return rows;
     }
 
-    public int delete(int id) {
+    @Override
+    public int delete(String id) {
         openDatabase();
         String selection = LINK + "=?";
         String[] seclectionAgs = {id + ""};
