@@ -38,8 +38,8 @@ public class MyAsyncTask extends AsyncTask<String, Void, ArrayList<ItemNew>> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressDialog.setMessage("Loading");
-        progressDialog.show();
+//        progressDialog.setMessage("Loading");
+//        progressDialog.show();
     }
 
     @Override
@@ -70,8 +70,8 @@ public class MyAsyncTask extends AsyncTask<String, Void, ArrayList<ItemNew>> {
         message.what = WHAT_NEWS;
         message.obj = itemNews;
         handler.sendMessage(message);
-        if (progressDialog != null) {
-            progressDialog.dismiss();
-        }
+//        if (progressDialog != null) {
+//            progressDialog.dismiss();
+//        }
     }
 }

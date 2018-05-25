@@ -5,10 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.kopiteshot.buoi15parserxml.R;
@@ -50,6 +52,8 @@ public class Like_Fragment extends Fragment {
         itemNews.addAll(likeDatabase.getData());
         check();
         listViewlike.setAdapter(itemAdapter);
+
+        //ấn để đọc
         listViewlike.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,6 +67,34 @@ public class Like_Fragment extends Fragment {
                 fragmentTransaction.replace(R.id.fmlayout, newspaper_fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }
+        });
+
+        // long click để xóa item thích
+        listViewlike.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                PopupMenu popup = new PopupMenu(getActivity(), view);
+                popup.getMenuInflater().inflate(R.menu.like_popup, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.delete_news: {
+                                likeDatabase.delete(itemNews.get(position).getLink());
+                                itemNews.remove(position);
+                                itemAdapter.notifyDataSetChanged();
+                                break;
+                            }
+
+                        }
+
+                        return true;
+                    }
+                });
+                popup.show();
+                return true;
             }
         });
     }
