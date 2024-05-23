@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private News_Fragment news_fragment;
     private Saved_Fragement saved_fragement;
     private Like_Fragment like_fragment;
-    private Like_Fragment like_fragment1;
     private ArrayList<FragmentManager> fragmentManagers = new ArrayList<>();
 
 
